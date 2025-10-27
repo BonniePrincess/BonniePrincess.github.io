@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+	<title>Homepage</title>
+
+	<style type="text/css">
+		h1{
+			background-color: burlywood;
+			color: darkblue;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  text-align: center;
+  letter-spacing: 20px;
+}
+h2{
+	background color: lightyellow;
+	color: darkblue;
+	  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  text-align: center;
+  letter-spacing: 20px;
+}
+#one{
+	width:100px;
+	height:100px;
+	background-image: url('star.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size:contain;
+	position: absolute;
+	left:300px;
+
+}
+#one:hover{
+	animation-name:Imastarone;
+	animation-duration: 2s;
+}
+@keyframes Imastarone{
+	50%{height: 120px; width: 120px;}
+	100%{transform: rotate(360deg);}
+}
+#two{
+	width:50px;
+	height:50px;
+	background-image: url('star.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size:contain;
+	position: absolute;
+	left:400px;
+}
+#two:hover{
+	animation-name: Imastartwo;
+	animation-duration: 2s;
+}
+@keyframes Imastartwo{
+	50%{height: 70px; width: 70px;}
+	100%{transform: rotate(360deg);}
+}
+#three{
+	width:100px;
+	height:100px;
+	background-image: url('star.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size:contain;
+	position: absolute;
+	left:900px;
+}
+#three:hover{
+	animation-name: Imastarthree;
+	animation-duration: 2s;
+}
+@keyframes Imastarthree{
+	50%{height: 120px; width: 120px;}
+	100%{transform: rotate(360deg);}
+}
+#four{
+	width:150px;
+	height:150px;
+	background-image: url('star.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size:contain;
+	position: absolute;
+	left:1000px;
+	top: 200px;
+}
+#four:hover{
+	animation-name: Imastarfour;
+	animation-duration: 2s;
+}
+@keyframes Imastarfour{
+	50%{height: 180px; width: 180px;}
+	100%{transform: rotate(360deg);}
+}
+a{
+	color: darkblue;
+	background-color: lightyelow;
+	margin: 20px;
+	text-decoration: none;
+}
+a:hover{
+	animation-name: hoveringonalink;
+	animation-duration:100s;
+}
+@keyframes hoveringonalink{
+	0%{text-decoration: underline;}
+}
+body{
+	background-color: lightyellow;
+}
+		 </style>
+</head>
+<body>
+<h1>Charlie's Homepage</h1>
+<br>
+<div id="one"></div>
+<div id="two"></div>
+<br><br>
+ <h2><a href="journal.html">my journal page</a><h2>
+
+<br><br>
+
+<h2><a href="projects.html">my projects page</a></h2><div id="four"></div>
+<div id="three"></div>
+
+
+</body>
+</html>
