@@ -19,23 +19,85 @@
 	left: 25%;
 	top: -50px;
 		}
-		#previous{
-
-		}
-		#next{
-
-		}
 		#hair{
+			top: -50px;
 height: 750px;
 			width: 750px;
-			background-image: url('');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size:contain;
 	position: absolute;
 	left: 25%;
 		}
+
+#haironeicon{
+	height: 200px;
+	width: 200px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size:contain;
+	position: absolute;
+left: 1200px;
+top: 100px;
+	background-image: url(hairone.png);
+}
+#hairtwoicon{
+	height: 200px;
+	width: 200px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size:contain;
+	position: absolute;
+left: 1200px;
+top: 200px;
+	background-image: url(hairtwo.png);
+}
+#hairthreeicon{
+	height: 200px;
+	width: 200px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size:contain;
+	position: absolute;
+left: 1200px;
+top: 300px;
+	background-image: url(hairthree.png);
+}
+#hairfouricon{
+	height: 200px;
+	width: 200px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size:contain;
+	position: absolute;
+left: 1200px;
+top: 400px;
+	background-image: url(hairfour.png);
+}
+#hairfiveicon{
+	height: 200px;
+	width: 200px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size:contain;
+	position: absolute;
+left: 1200px;
+top: 500px;
+	background-image: url(hairfive.png);
+}
+#menu{
+height: 700px;
+	width: 200px;
+	background-color: lightyellow;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size:contain;
+	position: absolute;
+left: 1200px;
+top: 0px;
+}
 	</style>
+
 </head>
 <body>
 	GRWM to flee Scotland!!!!
@@ -44,12 +106,25 @@ height: 750px;
 	<br><br>
 	- I'm the current leader of the Jacobites
 	<br>
-	- 
+	- We just tried to 
 <div id="baldhead"></div>
-<div id="previous"></div>
-<div id="next"></div>
 <div id="hair">
-	<a href="thenextpage.html"></a>
 </div>
+<div id="menu"></div>
+<div class="icon" id="haironeicon"></div>
+<div class="icon" id="hairtwoicon"></div>
+<div class="icon" id="hairthreeicon"></div>
+<div class="icon" id="hairfouricon"></div>
+<div class="icon" id="hairfiveicon"></div>
+<script type="text/javascript">
+	hair.style.backgroundImage="url(hairzero.png)"
+	haironeicon.addEventListener("click", function(){
+		hair.style.backgroundImage = "url(hairone.png)"
+	})
+	hair.style.backgroundImage="url(hairzero.png)"
+	hairicontwo.addEventListener("click", function(){
+		hair.style.backgroundImage = "url(hairtwo.png)"
+	})
+</script>
 </body>
 </html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type='text/css'>
+		body{
+			background-color: lightskyblue;
+		}
+		#doug{
+			width: 100px;
+			height: 100px;
+			background-image: url('https://images.vexels.com/media/users/3/146382/isolated/preview/81f266e0ff65ca64367cb99a89ea0d40-happy-pet-dog-cartoon.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size:contain;
+	position: absolute;
+		}
+		.box{
+			height: 100px;
+			width: 100px;
+		}
+	</style>
+</head>
+<body>
+<div class="box" id="hairone"></div>
+<div class="box" id="hairone"></div>
+<div class="box" id="hairone"></div>
+<div class="box" id="hairone"></div>
+<div class="box" id="hairone"></div>
+	<div id="doug"></div>
+<script type="text/javascript">
+	document.addEventListener("mousemove", function(event){
+		console.log(event.clientX, event.clientY)
+		doug.style.left=event.clientX + "px"
+		doug.style.top=event.clientY + "px"
+	})
+</script>
+</body>
+</html>
