@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>GRWM to flee Scotland</title>
 	<style>
 		body{
+			color: saddlebrown;
 			background-color: lightblue;
+			font-family: "nunito", sans-serif;
+			font-size: 20px;
 		}
 		#baldhead{
 			height: 750px;
@@ -38,7 +44,7 @@ height: 750px;
 	background-size:contain;
 	position: absolute;
 left: 1200px;
-top: 100px;
+top: -600px;
 	background-image: url(hairone.png);
 }
 #hairtwoicon{
@@ -49,7 +55,7 @@ top: 100px;
 	background-size:contain;
 	position: absolute;
 left: 1200px;
-top: 200px;
+top: -500px;
 	background-image: url(hairtwo.png);
 }
 #hairthreeicon{
@@ -60,7 +66,7 @@ top: 200px;
 	background-size:contain;
 	position: absolute;
 left: 1200px;
-top: 300px;
+top: -400px;
 	background-image: url(hairthree.png);
 }
 #hairfouricon{
@@ -71,7 +77,7 @@ top: 300px;
 	background-size:contain;
 	position: absolute;
 left: 1200px;
-top: 400px;
+top: -300px;
 	background-image: url(hairfour.png);
 }
 #hairfiveicon{
@@ -82,7 +88,7 @@ top: 400px;
 	background-size:contain;
 	position: absolute;
 left: 1200px;
-top: 500px;
+top: -200px;
 	background-image: url(hairfive.png);
 }
 #menu{
@@ -94,9 +100,38 @@ height: 700px;
 	background-size:contain;
 	position: absolute;
 left: 1200px;
+top: -700px;
+border-radius: 5px;
+}
+#thisisforstyle{
+	height: 75px;
+	width: 200px;
+	background-color: lightblue;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size:contain;
+	position: absolute;
+left: 1200px;
+top: -10px;
+}
+#menuicon{
+	text-align:center;
+	font-size: 33px;
+	height: 75px;
+	width: 200px;
+	 font-family: "Nunito", sans-serif;
+	 color:saddlebrown;
+	background-color: palegoldenrod;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size:contain;
+	position: absolute;
+left: 1200px;
 top: 0px;
+border-radius: 5px;
 }
 	</style>
+
 
 </head>
 <body>
@@ -106,7 +141,11 @@ top: 0px;
 	<br><br>
 	- I'm the current leader of the Jacobites
 	<br>
-	- We just tried to 
+	- We just tried to fight the battle of Culloden
+	<br>
+	- There's no way I'm staying through it
+	<br>
+	Anyways, let's go!
 <div id="baldhead"></div>
 <div id="hair">
 </div>
@@ -116,15 +155,67 @@ top: 0px;
 <div class="icon" id="hairthreeicon"></div>
 <div class="icon" id="hairfouricon"></div>
 <div class="icon" id="hairfiveicon"></div>
+<div id="thisisforstyle"></div>
+<div id="menuicon">
+	Hair Options
+</div>
 <script type="text/javascript">
-	hair.style.backgroundImage="url(hairzero.png)"
+
 	haironeicon.addEventListener("click", function(){
 		hair.style.backgroundImage = "url(hairone.png)"
 	})
-	hair.style.backgroundImage="url(hairzero.png)"
-	hairicontwo.addEventListener("click", function(){
+		
+	hairtwoicon.addEventListener("click", function(){
 		hair.style.backgroundImage = "url(hairtwo.png)"
 	})
+
+	hairthreeicon.addEventListener("click", function(){
+		hair.style.backgroundImage = "url(hairthree.png)"
+	})
+
+	hairfouricon.addEventListener("click", function(){
+		hair.style.backgroundImage = "url(hairfour.png)"
+	})
+
+	hairfiveicon.addEventListener("click", function(){
+		hair.style.backgroundImage = "url(hairfive.png)"
+	})
+	let clickCounter=0
+		
+		menuicon.addEventListener("click", function(){
+			clickCounter=clickCounter+1
+			if(clickCounter%2==1){
+				menu.style.transition="1s"
+				menu.style.top="0pc"
+				haironeicon.style.transition="1s"
+				haironeicon.style.top="100px"
+				hairtwoicon.style.transition="1s"
+				hairtwoicon.style.top="200px"
+				hairthreeicon.style.transition="1s"
+				hairthreeicon.style.top="300px"
+				hairfouricon.style.transition="1s"
+				hairfouricon.style.top="400px"
+				hairfiveicon.style.transition="1s"
+				hairfiveicon.style.top="520px"
+
+			}
+
+			if(clickCounter%2==0){
+				menu.style.transition="1s"
+				menu.style.top="-700px"
+				haironeicon.style.transition="1s"
+				haironeicon.style.top="-600px"
+				hairtwoicon.style.transition="1s"
+				hairtwoicon.style.top="-500px"
+				hairthreeicon.style.transition="1s"
+				hairthreeicon.style.top="-400px"
+				hairfouricon.style.transition="1s"
+				hairfouricon.style.top="-300px"
+				hairfiveicon.style.transition="1s"
+				hairfiveicon.style.top="-200px"
+
+			}
+		})
 </script>
 </body>
 </html>
