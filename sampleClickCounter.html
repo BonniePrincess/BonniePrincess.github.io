@@ -28,8 +28,8 @@
 			width:100px;
 			height:0px;
 			margin:10px;
+			border:1px solid black;
 			transition:1.5s;
-			background-color:lightpink;
 		}
 	</style>
 
@@ -43,7 +43,7 @@
 	<div id="hairoptions">
 		<div id="one"class="buttons"></div>
 		<div id="two"class="buttons"></div>
-		<div id="three"class="buttons"></div>
+		<div id="third"class="buttons"></div>
 		<div id="four"class="buttons"></div>
 	</div>
 
@@ -57,20 +57,13 @@
 				hairoptions.style.transition="1s"
 				hairoptions.style.height="500px"
 				one.style.height="100px"
-				two.style.height="100px"
-				three.style.height="100px"
-				four.style.height="100px"
+				one.style.height="100px"
 
 			}
 
 			if(clickCounter%2==0){
 				hairoptions.style.transition="1s"
 				hairoptions.style.height="0px"
-
-				one.style.height="0px"
-				two.style.height="0px"
-				three.style.height="0px"
-				four.style.height="0px"
 
 			}
 		})

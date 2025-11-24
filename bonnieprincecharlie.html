@@ -91,7 +91,7 @@ left: 1200px;
 top: -200px;
 	background-image: url(hairfive.png);
 }
-#menu{
+#hairmenu{
 height: 700px;
 	width: 200px;
 	background-color: lightyellow;
@@ -103,7 +103,7 @@ left: 1200px;
 top: -700px;
 border-radius: 5px;
 }
-#thisisforstyle{
+#hairthisisforstyle{
 	height: 75px;
 	width: 200px;
 	background-color: lightblue;
@@ -114,7 +114,7 @@ border-radius: 5px;
 left: 1200px;
 top: -10px;
 }
-#menuicon{
+#hairmenuicon{
 	text-align:center;
 	font-size: 33px;
 	height: 75px;
@@ -127,6 +127,45 @@ top: -10px;
 	background-size:contain;
 	position: absolute;
 left: 1200px;
+top: 0px;
+border-radius: 5px;
+}
+#accessoriesmenu{
+height: 700px;
+	width: 200px;
+	background-color: lightyellow;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size:contain;
+	position: absolute;
+left:950px;
+top: -700px;
+border-radius: 5px;
+}
+#accessoriesthisisforstyle{
+	height: 75px;
+	width: 200px;
+	background-color: lightblue;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size:contain;
+	position: absolute;
+left: 950px;
+top: -10px;
+}
+#accessoriesmenuicon{
+	text-align:center;
+	font-size: 33px;
+	height: 75px;
+	width: 200px;
+	 font-family: "Nunito", sans-serif;
+	 color:saddlebrown;
+	background-color: palegoldenrod;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size:contain;
+	position: absolute;
+left: 950px;
 top: 0px;
 border-radius: 5px;
 }
@@ -149,15 +188,20 @@ border-radius: 5px;
 <div id="baldhead"></div>
 <div id="hair">
 </div>
-<div id="menu"></div>
+<div id="hairmenu"></div>
 <div class="icon" id="haironeicon"></div>
 <div class="icon" id="hairtwoicon"></div>
 <div class="icon" id="hairthreeicon"></div>
 <div class="icon" id="hairfouricon"></div>
 <div class="icon" id="hairfiveicon"></div>
-<div id="thisisforstyle"></div>
-<div id="menuicon">
-	Hair Options
+<div id="hairthisisforstyle"></div>
+<div id="hairmenuicon">
+	Hair
+</div>
+<div id="accessoriesmenu"></div>
+<div id="accessoriesthisisforstyle"></div>
+<div id="accessoriesmenuicon">
+	Accessories
 </div>
 <script type="text/javascript">
 
@@ -182,11 +226,11 @@ border-radius: 5px;
 	})
 	let clickCounter=0
 		
-		menuicon.addEventListener("click", function(){
+		hairmenuicon.addEventListener("click", function(){
 			clickCounter=clickCounter+1
 			if(clickCounter%2==1){
-				menu.style.transition="1s"
-				menu.style.top="0pc"
+				hairmenu.style.transition="1s"
+				hairmenu.style.top="0pc"
 				haironeicon.style.transition="1s"
 				haironeicon.style.top="100px"
 				hairtwoicon.style.transition="1s"
@@ -201,8 +245,8 @@ border-radius: 5px;
 			}
 
 			if(clickCounter%2==0){
-				menu.style.transition="1s"
-				menu.style.top="-700px"
+				hairmenu.style.transition="1s"
+				hairmenu.style.top="-700px"
 				haironeicon.style.transition="1s"
 				haironeicon.style.top="-600px"
 				hairtwoicon.style.transition="1s"
@@ -214,6 +258,18 @@ border-radius: 5px;
 				hairfiveicon.style.transition="1s"
 				hairfiveicon.style.top="-200px"
 
+			}
+		})
+		let accessoriesClickCounter=0
+		accessoriesmenuicon.addEventListener("click", function(){
+			accessoriesClickCounter=accessoriesClickCounter+1
+			if(accessoriesClickCounter%2==1){
+				accessoriesmenu.style.transition="1s"
+				accessoriesmenu.style.top="0px"
+			}
+			if (accessoriesClickCounter%2==0){
+				accessoriesmenu.style.transition="1s"
+				accessoriesmenu.style.top="-700px"
 			}
 		})
 </script>
