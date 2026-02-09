@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trains!</title>
+	<style>
+		#train{
+			display: flex;
+			gap: 12px;
+			/*If you're not using flex, this gap won't work at all, use margins*/
+		}
+
+
+		.cart{
+			border: 1px solid black;
+			min-width:100px;
+			height:80px;
+			text-align: center;
+			position: relative;
+		}
+		.cart:before{
+			content: "";
+			width:30px;
+			height:30px;
+			border:1px solid black;
+			display:block;
+			border-radius:50%;
+			position: absolute;	
+			bottom:-15px;
+			left: 10px;	
+			background-color: white;
+		}
+
+		.cart:after{
+			content: "";
+			width:30px;
+			height:30px;
+			border:1px solid black;
+			display:block;
+			border-radius:50%;
+			position: absolute;	
+			bottom:-15px;
+			left: 60px;	
+			background-color:white;
+		}
+	</style>
+</head>
+<body>
+
+	<input type="text" id="person">
+	<button id="add-person">add person</button>
+	<button id="delete-person">delete most recent person</button>
+
+	<div id="train">
+		
+	</div>
+
+	<script>
+
+		
+
+		let people =[""]
+		let train = document.getElementById("train")
+
+
+
+		function makeTrain(){
+			train.innerHTML=""
+ for (let i = 0; i < people.length; i++) {
+			console.log(people[i])
+			let cart = document.createElement("div")
+			cart.classList.add("cart")
+			train.appendChild(cart)
+			cart.textContent = people[i]
+		}
+		}
+		
+
+		let addPersonBtn = document.getElementById("add-person")
+		addPersonBtn.addEventListener("click",function(){
+			let personInput = document.getElementById("person")
+			console.log(personInput.value)
+
+			people.push(personInput.value)
+			personInput.value=""
+			console.log(people)
+				makeTrain()
+		})
+
+		let deletePersonBtn = document.getElementById("delete-person")
+		deletePersonBtn.addEventListener("click",function(){
+
+			people.pop()
+			makeTrain()
+
+			console.log(people)
+		})
+
+
+		// people.push("")
+		// // this is a way to add things to an array
+		// people.pop("")
+		// this is gow you remove the last person
+	
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<style>
+
+body{
+background-color: lightblue;
+}
+.confetti{
+    position:absolute;
+    border: 2px solid black;
+    border-radius: 20%;
+   
+}
+
+</style>
+
+
+</head>
+<body>
+
+
+<script type=text/javascript>
+let falling = 0
+function makeConfetti(){
+let square= document.createElement(
+"div")
+square.classList.add("confetti")
+document.body.appendChild(square)
+square.style.backgroundColor="burlywood"
+square.style.left=Math.random()*2000+"px"
+square.style.top=Math.random()*-300-400+"px"
+square.style.height=Math.random()*300+"px"
+square.style.width=Math.random()*100+"px"
+function fall(){
+let fallFactor = 10
+falling=falling+50
+
+square.style.top = parseInt(square.style.top)+fallFactor+"px"
+if(parseInt(square.style.top) > 1000) {
+square.style.top = -400 + "px"
+}
+}
+
+if(square.style.width<50){
+square.style.height=parseInt(square.style.height)+50+"px"
+}
+
+
+setInterval(fall, 50)
+}
+for (let i = 0; i <= 5; i++) {
+makeConfetti()
+}
+
+</script>
+</body>
+</html>
