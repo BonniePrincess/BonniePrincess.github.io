@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style>
+		#sillybutton{
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+
+<button id="sillybutton">click here for Noel Fielding</button>
+
+
+<script>
+	
+let badbutton = document.getElementById("sillybutton")
+
+
+badbutton.addEventListener("click", function(){
+	console.log("click")
+})
+badbutton.addEventListener("mouseover",function(){
+	console.log("Tommorrow and Tommorrow creeps in this petty pace from day to day.")
+	badbutton.style.top=Math.random()*700+"px"
+	badbutton.style.left=Math.random()*1000+"px"
+
+})
+badbutton.addEventListener("mouseout",function(){
+	console.log("Buh-Bye!")
+	alert("'Gay people are all like Superman. You have to be quite strong to be gay - or to be different in any way. You build special muscles.' --My Absolute King, Noel Fielding")
+})
+
+</script>
+
+
+
+</body>
+</html>
