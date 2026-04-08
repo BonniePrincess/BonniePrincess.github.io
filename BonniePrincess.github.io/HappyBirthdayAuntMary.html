@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<title></title>
+</head>
+<style type="text/css">
+	body{
+		background-color: lightpink;
+	}
+	#box{
+		width:500px;
+		height:500px;
+		background-image:url(presentbox.png);
+		background-repeat: no-repeat;
+	background-position: center;
+	background-size:contain;
+	position: absolute;
+	left:400px;
+	top: 150px;
+	text-align:center;
+	font-size: 33px;
+	}
+	#presenttop{
+		width:500px;
+		height:500px;
+		background-image:url(presenttop.png);
+		background-repeat: no-repeat;
+	background-position: center;
+	background-size:contain;
+	position: absolute;
+	left: 400px;
+	top:150px;
+	}
+	#bow{
+		width:500px;
+		height:500px;
+		background-image:url(presentbow.png);
+		background-repeat: no-repeat;
+	background-position: center;
+	background-size:contain;
+	position: absolute;
+	left:400px;
+	top:150px;
+	text-align:center;
+	font-size: 33px;
+	font-family: "Nunito", sans-serif;
+	color:darkblue;
+	}
+	#message{
+		width:300px;
+		height:200px;
+	left:100px;
+	top:300px;
+	text-align:center;
+	font-size: 40px;
+	font-family: "Nunito", sans-serif;
+	color:darkgreen;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size:contain;
+	position: absolute;
+		background-color: lightgreen;
+	border-radius: 10px;
+	}
+	#longermessage{
+		width:300px;
+		height:100px;
+	left:500px;
+	top:350px;
+	text-align:center;
+	font-size: 10px;
+	font-family: "Nunito", sans-serif;
+	color:darkgreen;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size:contain;
+	position: absolute;
+	background-color: lightgreen;
+	border-radius: 10px;
+	}
+</style>
+<body>
+<div id="longermessage">
+	<br><br>
+	I hope you're going to have an amazing year, and I can't wait to see you at Wicked! (edit: Wicked was so fun!!!) I really hope you like the moon jellycat, and that Claude doesn't too much. 
+	<br>
+	Much love,
+	<br>
+	Charlie 😊
+</div>
+<div id="message">
+Happy Birthday
+<br>
+Aunt Mary!!!
+</div>
+<div id="box">
+</div>
+<div id="presenttop"></div>
+<div id="bow"><br><br><br><br><br><br>click me!!!</div>
+<script type="text/javascript">
+	top.addEventListener("click",function(){
+		box.style.transition="2s"
+		box.style.top="1000px"
+		bow.style.transition="2s"
+		bow.style.top="-1000px"
+		presenttop.style.transition="2s"
+		presenttop.style.top="-1000px"
+	})
+</script>
+</body>
+</html>
