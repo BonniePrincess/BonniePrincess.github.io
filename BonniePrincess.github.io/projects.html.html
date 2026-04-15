@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">	<title></title>
+
+<style>
+	body{
+		background-color: black;
+	}
+	a{		color:black;
+}
+h1{
+	color:darkred;
+	font-family: "Metal Mania", system-ui;
+	font-size:40px;
+
+}
+	#next{
+		width:100px;
+		height:100px;
+		background-color: darkred;
+		top:350px;
+		right: 100px;
+		position: absolute;
+		border-radius:50%;
+	}
+
+	#firstproject{
+		background-color: darkred;
+		position: absolute;
+		left:350px;
+		width: 750px;
+		height:500px;
+		top:125px;
+		font-family: "Metal Mania", system-ui;
+		border-radius: 10px;
+				color:black;
+	}
+
+	#secondproject{
+		background-color: darkred;
+		position: absolute;
+		right:225px;
+		width: 100px;
+		height:300px;
+		top:225px;
+		font-family: "Metal Mania", system-ui;
+		border-radius: 10px;
+				color:black;
+	}
+	#thirdproject{
+		background-color: darkred;
+		position: absolute;
+		right:0px;
+		width: 0px;
+		height:0px;
+		top:400px;
+		font-family: "Metal Mania", system-ui;
+		border-radius: 10px;
+				color:black;
+	}
+
+	#fourthproject{
+		background-color: darkred;
+		position: absolute;
+		right:0px;
+		width: 0px;
+		height:0px;
+		top:400px;
+		font-family: "Metal Mania", system-ui;
+		border-radius: 10px;
+				color:black;
+	}
+
+	#fifthproject{
+		background-color: darkred;
+		position: absolute;
+		right:0px;
+		width: 0px;
+		height:0px;
+		top:400px;
+		font-family: "Metal Mania", system-ui;
+		color:black;
+
+		border-radius: 10px;
+	}
+
+	#sixthproject{
+		background-color: darkred;
+		position: absolute;
+		left:225px;
+		width: 100px;
+		height:300px;
+		top:225px;
+		font-family: "Metal Mania", system-ui;
+		border-radius: 10px;
+		color: black;
+	}
+	.picture{
+		width: 60%;
+		left:20%;
+		height:60%;
+		top:30%;
+		position: absolute;
+		background-color: ghostwhite;
+			background-repeat: no-repeat;
+	background-position: center;
+	background-size:contain;
+	border-radius: 10px;
+	}
+	#firstimage{
+		background-image: url(https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png);
+	}
+	#secondimage{
+		background-image: url(https://www.history.org.uk/library/0901/0000/0244/the_bonnie_prince.jpg);
+	}
+	#thirdimage{
+		background-image: url(confetti.png);
+	}
+	#fourthimage{
+		background-image: url(LittleDrawingCode.png);
+	}
+	#fifthimage{
+		background-image: url(https://prodmediawebuildvalue.alkemy.digital/wp-content/uploads/2025/08/Immagine2-1.jpg);
+	}
+	#sixthimage{
+		background-image: url(tiles.png);
+	}
+
+
+</style>
+
+</head>
+<body>
+
+
+<center><h1>Projects</h1></center>
+
+<div id="next"></div>
+<div id="firstproject"><center><a href="EventListener.html"><br><br>First Event Listener Practice</a>
+<div class="picture" id="firstimage"></div>
+</center></div>
+
+
+<div id="secondproject"><center><a href="bonnieprincecharlie.html"><br><br>Dress up my glorious prince to flee the highlands</a>
+	<div class="picture" id="secondimage"></div>
+
+</center></div>
+
+
+<div id="thirdproject"><center><a href="confetti.html"><br><br>make some confetti dude</a>
+<div class="picture" id="thirdimage"></div>
+</center></div>
+
+
+<div id="fourthproject"><center><a href="drawing.html"><br><br>my first foray into p5js</a>
+<div class="picture" id="fourthimage"></div>
+</center></div>
+
+
+<div id="fifthproject"><center><a href="train.html"><br><br>I like trains</a>
+<div class="picture" id="fifthimage"></div>
+</center></div>
+
+
+<div id="sixthproject"><center><a href="drawingbutagain.html"><br><br>Drawinggggggg it's better p5js</a>
+<div class="picture" id="sixthimage"></div>
+</center></div>
+
+
+<script>
+let next = document.getElementById("next")
+
+let slide = 0
+
+next.addEventListener("click",function(){
+slide=slide+1
+
+if(slide%6==0){
+
+secondproject.style.transition="1s"
+secondproject.style.left="1150px"
+secondproject.style.width="100px"
+secondproject.style.height="300px"
+secondproject.style.top="225px"
+
+firstproject.style.transition="1s"
+firstproject.style.left="350px"
+firstproject.style.width="750px"
+firstproject.style.height="500px"
+firstproject.style.top="125px"
+
+sixthproject.style.transition="1s"
+sixthproject.style.left="225px"
+sixthproject.style.width="100px"
+sixthproject.style.height="300px"
+sixthproject.style.top="225px"
+
+fifthproject.style.transition="1s"
+fifthproject.style.left="-700px"
+fifthproject.style.width="0px"
+fifthproject.style.height="0px"
+fifthproject.style.top="400px"
+fifthproject.style.color="white"
+
+fourthproject.style.left="1500px"
+fourthproject.style.width="0px"
+fourthproject.style.height="0px"
+fourthproject.style.top="400px"
+
+thirdproject.style.left="1500px"
+thirdproject.style.width="0px"
+thirdproject.style.height="0px"
+thirdproject.style.top="400px"
+
+}
+
+if(slide%6==1){
+
+
+fifthproject.style.left="1500px"
+fifthproject.style.width="0px"
+fifthproject.style.height="0px"
+fifthproject.style.top="400px"
+
+
+fourthproject.style.left="1500px"
+fourthproject.style.width="0px"
+fourthproject.style.height="0px"
+fourthproject.style.top="400px"
+
+thirdproject.style.transition="1s"
+thirdproject.style.left="1150px"
+thirdproject.style.width="100px"
+thirdproject.style.height="300px"
+thirdproject.style.top="225px"
+
+secondproject.style.transition="1s"
+secondproject.style.left="350px"
+secondproject.style.width="750px"
+secondproject.style.height="500px"
+secondproject.style.top="125px"
+
+firstproject.style.transition="1s"
+firstproject.style.left="225px"
+firstproject.style.width="100px"
+firstproject.style.height="300px"
+firstproject.style.top="225px"
+
+sixthproject.style.transition="1s"
+sixthproject.style.left="-700px"
+sixthproject.style.width="0px"
+sixthproject.style.height="0px"
+sixthproject.style.top="400px"
+
+}
+
+if(slide%6==2){
+sixthproject.style.left="1500px"
+sixthproject.style.width="0px"
+sixthproject.style.height="0px"
+sixthproject.style.top="400px"
+
+
+fifthproject.style.left="1500px"
+fifthproject.style.width="0px"
+fifthproject.style.height="0px"
+fifthproject.style.top="400px"
+
+fourthproject.style.transition="1s"
+fourthproject.style.left="1150px"
+fourthproject.style.width="100px"
+fourthproject.style.height="300px"
+fourthproject.style.top="225px"
+
+thirdproject.style.transition="1s"
+thirdproject.style.left="350px"
+thirdproject.style.width="750px"
+thirdproject.style.height="500px"
+thirdproject.style.top="125px"
+
+secondproject.style.transition="1s"
+secondproject.style.left="225px"
+secondproject.style.width="100px"
+secondproject.style.height="300px"
+secondproject.style.top="225px"
+
+firstproject.style.transition="1s"
+firstproject.style.left="-700px"
+firstproject.style.width="0px"
+firstproject.style.height="0px"
+firstproject.style.top="400px"
+}
+
+
+if(slide%6==3){
+firstproject.style.left="1500px"
+firstproject.style.width="0px"
+firstproject.style.height="0px"
+firstproject.style.top="400px"
+
+sixthproject.style.left="1500px"
+sixthproject.style.width="0px"
+sixthproject.style.height="0px"
+sixthproject.style.top="400px"
+
+fifthproject.style.transition="1s"
+fifthproject.style.left="1150px"
+fifthproject.style.width="100px"
+fifthproject.style.height="300px"
+fifthproject.style.top="225px"
+
+fourthproject.style.transition="1s"
+fourthproject.style.left="350px"
+fourthproject.style.width="750px"
+fourthproject.style.height="500px"
+fourthproject.style.top="125px"
+
+thirdproject.style.transition="1s"
+thirdproject.style.left="225px"
+thirdproject.style.width="100px"
+thirdproject.style.height="300px"
+thirdproject.style.top="225px"
+
+secondproject.style.transition="1s"
+secondproject.style.left="-700px"
+secondproject.style.width="0px"
+secondproject.style.height="0px"
+secondproject.style.top="400px"
+}
+
+if(slide%6==4){
+secondproject.style.left="1500px"
+secondproject.style.width="0px"
+secondproject.style.height="0px"
+secondproject.style.top="400px"
+
+firstproject.style.left="1500px"
+firstproject.style.width="0px"
+firstproject.style.height="0px"
+firstproject.style.top="400px"
+
+sixthproject.style.transition="1s"
+sixthproject.style.left="1150px"
+sixthproject.style.width="100px"
+sixthproject.style.height="300px"
+sixthproject.style.top="225px"
+
+fifthproject.style.transition="1s"
+fifthproject.style.left="350px"
+fifthproject.style.width="750px"
+fifthproject.style.height="500px"
+fifthproject.style.top="125px"
+
+fourthproject.style.transition="1s"
+fourthproject.style.left="225px"
+fourthproject.style.width="100px"
+fourthproject.style.height="300px"
+fourthproject.style.top="225px"
+
+thirdproject.style.transition="1s"
+thirdproject.style.left="-700px"
+thirdproject.style.width="0px"
+thirdproject.style.height="0px"
+thirdproject.style.top="400px"
+}
+
+if(slide%6==5){
+thirdproject.style.left="1500px"
+thirdproject.style.width="0px"
+thirdproject.style.height="0px"
+thirdproject.style.top="400px"
+
+secondproject.style.left="1500px"
+secondproject.style.width="0px"
+secondproject.style.height="0px"
+secondproject.style.top="400px"
+
+firstproject.style.transition="1s"
+firstproject.style.left="1150px"
+firstproject.style.width="100px"
+firstproject.style.height="300px"
+firstproject.style.top="225px"
+
+sixthproject.style.transition="1s"
+sixthproject.style.left="350px"
+sixthproject.style.width="750px"
+sixthproject.style.height="500px"
+sixthproject.style.top="125px"
+
+fifthproject.style.transition="1s"
+fifthproject.style.left="225px"
+fifthproject.style.width="100px"
+fifthproject.style.height="300px"
+fifthproject.style.top="225px"
+
+fourthproject.style.transition="1s"
+fourthproject.style.left="-700px"
+fourthproject.style.width="0px"
+fourthproject.style.height="0px"
+fourthproject.style.top="400px"
+}
+})
+
+
+	
+</script>
+</body>
+</html>

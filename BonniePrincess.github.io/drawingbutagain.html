@@ -10,48 +10,60 @@
 
 
 <script>
+
+	let pallete =["#A1C080","#D7FFAB","#FCFF6C","#D89D6A","#6D454C","7A565C"]
 	function setup() {
-	createCanvas(400,400)
+	createCanvas(1400,700)
 }
 
 function draw(){
-	background(200)
-	for (i=0;i<5;i++){
-	for(j=0;j<5;j++){
+	background("#000000")
+	for (i=0;i<15;i++){
+		strokeWeight(0)
+		fill("#A1C080")
+		rect(i*100,0,50,800)
+	for(j=0;j<8;j++){
+		fill("#FFFFFF")
 		circle(i*100,j*100,100)
-	}
-}
-	for (i=0;i<5;i++){
-	for(j=0;j<5;j++){
-		circle(i*100,j*100,80)
-	}
-}
-	for (i=0;i<5;i++){
-	for(j=0;j<5;j++){
-		circle(i*100,j*100,60)
-	}
-}
+		fill("#FCFF6C")
+		rect(i*100,j*100+50,50,50)
+		fill("#D89D6A")
+		rect(i*100+50,j*100+50,50,50)
 
-	for (i=0;i<5;i++){
-	for(j=0;j<5;j++){
-		circle(i*100,j*100,40)
 	}
-}
-
-for (i=0;i<5;i++){
-	for(j=0;j<5;j++){
-		circle(i*100,j*100,20)
-	}
-}
-
-for (i=0;i<5;i++){
-	for(j=0;j<5;j++){
-		circle(i*100,j*100,1)
-	}
-}
-
 
 }
+// }
+// 	for (i=0;i<5;i++){
+// 	for(j=0;j<5;j++){
+// 		circle(i*100,j*100,80)
+// 	}
+// }
+// 	for (i=0;i<5;i++){
+// 	for(j=0;j<5;j++){
+// 		circle(i*100,j*100,60)
+// 	}
+// }
+
+// 	for (i=0;i<5;i++){
+// 	for(j=0;j<5;j++){
+// 		circle(i*100,j*100,40)
+// 	}
+// }
+
+// for (i=0;i<5;i++){
+// 	for(j=0;j<5;j++){
+// 		circle(i*100,j*100,20)
+// 	}
+// }
+
+// for (i=0;i<5;i++){
+// 	for(j=0;j<5;j++){
+// 		circle(i*100,j*100,1)
+// 	}
+}
+
+
 </script>
 </body>
 </html>
