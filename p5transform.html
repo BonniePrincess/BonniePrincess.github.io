@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.min.js"></script>
+	<title></title>
+</head>
+<body>
+
+
+
+	<script>
+
+		function setup(){
+			createCanvas(800,800)
+		}
+		function draw(){
+			background(200)
+	push()
+	translate(100,100)
+	rectMode(CENTER)
+			// rotate(PI/8)
+			rotate(frameCount*0.05)
+			rect (0,0,100,50)
+
+pop()
+rotate(frameCount*0.01)
+			rect (width/2,height/2,120,40)
+		}
+
+
+
+
+
+	</script>
+
+</body>
+</html>
