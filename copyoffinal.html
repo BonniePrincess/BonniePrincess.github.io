@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style>
+		.tile{
+			border: 1px solid black;
+			width: 170px;
+			height:220px;
+			background-repeat: no-repeat;
+			background-size:contain;
+			background-position: center;
+
+
+		}
+		#one{
+			left:100px;
+			top:50px;
+			position:absolute;
+		}
+		#two{
+			left:270px;
+			top:50px;
+			position:absolute;
+
+		}
+		#three{
+			left:440px;
+			top:50px;
+			position:absolute;
+		}
+
+		#four{
+			left:100px;
+			top:270px;
+			position:absolute;
+		}
+		#five{
+			left:270px;
+			top:270px;
+			position:absolute;
+		}
+		#six{
+			left:440px;
+			top:270px;
+			position:absolute;
+
+		}
+		#seven{
+			left:100px;
+			top:490px;
+			position:absolute;
+		}
+		#eight{
+			left:270px;
+			top:490px;
+			position:absolute;
+		}
+		#nine{
+			left:440px;
+			top:490px;
+			position:absolute;
+		}
+		
+
+	</style>
+</head>
+<body>
+<button id="New Guy">New Game</button>
+<input type="text" id="Guess Input">
+<button id="Guess">Guess</button>
+<div id="instructions">
+	Instructions/Rules/Gameplay:
+	<br><br>
+	1. 
+</div>
+<div class="tile" id="one"></div>
+<div class="tile" id="two"></div>
+<div class="tile" id="three"></div>
+<div class="tile" id="four"></div>
+<div class="tile" id="five"></div>
+<div class="tile" id="six"></div>
+<div class="tile" id="seven"></div>
+<div class="tile" id="eight"></div>
+<div class="tile" id="nine"></div>
+
+
+<script>
+let mostRecentGuess
+let guessCount
+let person
+newGuy=document.getElementById("New Guy")
+guess=document.getElementById("Guess")
+guessInput=document.getElementById("Guess Input")
+let firstTile
+let secondTile
+let thirdTile
+let fourthTile
+let fifthTile
+let sixthTile
+let seventhTile
+let eighthTile
+let ninthTile
+let people = ["Noel-Fielding","David-Bowie","Sabrina-Carpenter","Chappell-Roan","Freddie-Mercury","Timothee-Chalamet","Divine","Adam-Ant","Karl-Lagerfeld","Chae-Stone"]
+
+function choosePerson(){
+let guessCount=0
+
+one.style.backgroundImage=""
+two.style.backgroundImage=""
+three.style.backgroundImage=""
+four.style.backgroundImage=""
+five.style.backgroundImage=""
+six.style.backgroundImage=""
+seven.style.backgroundImage=""
+eight.style.backgroundImage=""
+nine.style.backgroundImage=""
+
+
+let person =Math.floor(Math.random()*10)
+console.log(people[person])
+
+let firstTile= Math.floor(Math.random()*9)
+console.log(firstTile)
+
+if (firstTile==0) {
+	one.style.backgroundImage="url("+(people[person])+"1.png)"
+} else if (firstTile==1) {
+	two.style.backgroundImage="url("+(people[person])+"2.png)"
+} else if (firstTile==2) {
+	three.style.backgroundImage="url("+(people[person])+"3.png)"
+} else if (firstTile==3) {
+	four.style.backgroundImage="url("+(people[person])+"4.png)"
+} else if (firstTile==4) {
+	five.style.backgroundImage="url("+(people[person])+"5.png)"
+} else if (firstTile==5) {
+	six.style.backgroundImage="url("+(people[person])+"6.png)"
+}else if (firstTile==6) {
+	seven.style.backgroundImage="url("+(people[person])+"7.png)"
+} else if (firstTile==7) {
+	eight.style.backgroundImage="url("+(people[person])+"8.png)"
+} else if (firstTile==8) {
+	nine.style.backgroundImage="url("+(people[person])+"9.png)"
+}
+
+// guess.addEventListener("click", function(){
+// 	guessCount++
+// 	mostRecentGuess=guessInput.value
+// 	console.log(mostRecentGuess)
+// 	guessInput=""
+
+// if (guessCount==1) {
+// if (mostRecentGuess==person){
+// alert("You Won The Game! (Did you lose the game just now?) Click new game or refresh to play again")
+// }else{
+// let secondTile = Math.floor(Math.random()*9)
+// if (secondTile==firstTile) {
+// // basically replay the function
+// // I think I need to actually just define the function and then make it so that clicking guess starts it
+// }else{
+// 	if(secondTile==0){
+// one.style.backgroundImage="url("+(people[person])+"1.png)"
+// 	} else if (secondTile==1) {
+// two.style.backgroundImage="url("+(people[person])+"2.png)"
+// 	}else if (secondTile==2) {
+// three.style.backgroundImage="url("+(people[person])+"3.png)"	
+// 	}else if (secondTile==3) {
+// four.style.backgroundImage="url("+(people[person])+"4.png)"	
+// 	}else if (secondTile==4) {
+// five.style.backgroundImage="url("+(people[person])+"5.png)"	
+// 	}else if (secondTile==5) {
+// six.style.backgroundImage="url("+(people[person])+"6.png)"	
+// 	}else if (secondTile==6) {
+// seven.style.backgroundImage="url("+(people[person])+"7.png)"	
+// 	}else if (secondTile==7) {
+// eight.style.backgroundImage="url("+(people[person])+"8.png)"	
+// 	}else if (secondTile==8) {
+// nine.style.backgroundImage="url("+(people[person])+"9.png)"	
+// 	}
+// }
+
+// }
+
+// } else if (guessCount==2) {
+// if (mostRecentGuess==person){
+// alert("You Won The Game! (Did you lose the game just now?) Click new game or refresh to play again")
+// }else{
+// let thirdTile = Math.floor(Math.random()*9)
+// if (thirdTile == secondTile || thirdTile == firstTile) {
+// // basically replay the function
+// // I think I need to actually just define the function and then make it so that clicking guess starts it
+// }else{
+// 	if(thirdTile==0){
+// one.style.backgroundImage="url("+(people[person])+"1.png)"
+// 	} else if (thirdTile==1) {
+// two.style.backgroundImage="url("+(people[person])+"2.png)"
+// 	}else if (thirdTile==2) {
+// three.style.backgroundImage="url("+(people[person])+"3.png)"	
+// 	}else if (thirdTile==3) {
+// four.style.backgroundImage="url("+(people[person])+"4.png)"	
+// 	}else if (thirdTile==4) {
+// five.style.backgroundImage="url("+(people[person])+"5.png)"	
+// 	}else if (thirdTile==5) {
+// six.style.backgroundImage="url("+(people[person])+"6.png)"	
+// 	}else if (thirdTile==6) {
+// seven.style.backgroundImage="url("+(people[person])+"7.png)"	
+// 	}else if (thirdTile==7) {
+// eight.style.backgroundImage="url("+(people[person])+"8.png)"	
+// 	}else if (thirdTile==8) {
+// nine.style.backgroundImage="url("+(people[person])+"9.png)"	
+// 	}
+// }
+// }else if (guessCount==3) {
+// if (mostRecentGuess==person){
+// alert("You Won The Game! (Did you lose the game just now?) Click new game or refresh to play again")
+// }else{
+// let fourthTile = Math.floor(Math.random()*9)
+// if (fourthTile == thirdTile || fourthTile == secondTile || fourthTile == firstTile) {
+// // basically replay the function
+// // I think I need to actually just define the function and then make it so that clicking guess starts it
+// }else{
+// 	if(fourthTile==0){
+// one.style.backgroundImage="url("+(people[person])+"1.png)"
+// 	} else if (fourthTile==1) {
+// two.style.backgroundImage="url("+(people[person])+"2.png)"
+// 	}else if (fourthTile==2) {
+// three.style.backgroundImage="url("+(people[person])+"3.png)"	
+// 	}else if (fourthTile==3) {
+// four.style.backgroundImage="url("+(people[person])+"4.png)"	
+// 	}else if (fourthTile==4) {
+// five.style.backgroundImage="url("+(people[person])+"5.png)"	
+// 	}else if (fourthTile==5) {
+// six.style.backgroundImage="url("+(people[person])+"6.png)"	
+// 	}else if (fourthTile==6) {
+// seven.style.backgroundImage="url("+(people[person])+"7.png)"	
+// 	}else if (fourthTile==7) {
+// eight.style.backgroundImage="url("+(people[person])+"8.png)"	
+// 	}else if (fourthTile==8) {
+// nine.style.backgroundImage="url("+(people[person])+"9.png)"	
+// 	}
+// }	
+// }else if (guessCount==4) {
+// if (mostRecentGuess==person){
+// alert("You Won The Game! (Did you lose the game just now?) Click new game or refresh to play again")
+// }else{
+// let fifthTile = Math.floor(Math.random()*9)
+// if (fifthTile==firstTile || fifthTile==secondTile || fifthTile==thirdTile ||fifthTile==fourthTile ||) {
+// // basically replay the function
+// // I think I need to actually just define the function and then make it so that clicking guess starts it
+// }else{
+// 	if(fifthTile==0){
+// one.style.backgroundImage="url("+(people[person])+"1.png)"
+// 	} else if (fifthTile==1) {
+// two.style.backgroundImage="url("+(people[person])+"2.png)"
+// 	}else if (fifthTile==2) {
+// three.style.backgroundImage="url("+(people[person])+"3.png)"	
+// 	}else if (fifthTile==3) {
+// four.style.backgroundImage="url("+(people[person])+"4.png)"	
+// 	}else if (fifthTile==4) {
+// five.style.backgroundImage="url("+(people[person])+"5.png)"	
+// 	}else if (fifthTile==5) {
+// six.style.backgroundImage="url("+(people[person])+"6.png)"	
+// 	}else if (fifthTile==6) {
+// seven.style.backgroundImage="url("+(people[person])+"7.png)"	
+// 	}else if (fifthTile==7) {
+// eight.style.backgroundImage="url("+(people[person])+"8.png)"	
+// 	}else if (fifthTile==8) {
+// nine.style.backgroundImage="url("+(people[person])+"9.png)"	
+// 	}
+// }	
+// }else if (guessCount==5) {
+// if (mostRecentGuess==person){
+// alert("You Won The Game! (Did you lose the game just now?) Click new game or refresh to play again")
+// }else{
+// let secondTile = Math.floor(Math.random()*9)
+// if ((sixthTile==firstTile || sixthTile==secondTile || sixthTile==thirdTile ||sixthTile==fourthTile || sixthTile==fifthTile) {
+// // basically replay the function
+// // I think I need to actually just define the function and then make it so that clicking guess starts it
+// }else{
+// 	if(sixthTile==0){
+// one.style.backgroundImage="url("+(people[person])+"1.png)"
+// 	} else if (sixthTile==1) {
+// two.style.backgroundImage="url("+(people[person])+"2.png)"
+// 	}else if (sixthTile==2) {
+// three.style.backgroundImage="url("+(people[person])+"3.png)"	
+// 	}else if (sixthTile==3) {
+// four.style.backgroundImage="url("+(people[person])+"4.png)"	
+// 	}else if (sixthTile==4) {
+// five.style.backgroundImage="url("+(people[person])+"5.png)"	
+// 	}else if (sixthTile==5) {
+// six.style.backgroundImage="url("+(people[person])+"6.png)"	
+// 	}else if (sixthTile==6) {
+// seven.style.backgroundImage="url("+(people[person])+"7.png)"	
+// 	}else if (sixthTile==7) {
+// eight.style.backgroundImage="url("+(people[person])+"8.png)"	
+// 	}else if (sixthTile==8) {
+// nine.style.backgroundImage="url("+(people[person])+"9.png)"	
+// 	}
+// }	
+// }else if (guessCount==6) {
+// if (mostRecentGuess==person){
+// alert("You Won The Game! (Did you lose the game just now?) Click new game or refresh to play again")
+// }else{
+// let secondTile = Math.floor(Math.random()*9)
+// if (seventhTile==firstTile || seventhTile==secondTile || seventhTile==thirdTile ||seventhTile==fourthTile || seventhTile==fifthTile|| seventhTile ==sixthTile) {
+// // basically replay the function
+// // I think I need to actually just define the function and then make it so that clicking guess starts it
+// }else{
+// 	if(seventhTile==0){
+// one.style.backgroundImage="url("+(people[person])+"1.png)"
+// 	} else if (seventhTile==1) {
+// two.style.backgroundImage="url("+(people[person])+"2.png)"
+// 	}else if (seventhTile==2) {
+// three.style.backgroundImage="url("+(people[person])+"3.png)"	
+// 	}else if (seventhTile==3) {
+// four.style.backgroundImage="url("+(people[person])+"4.png)"	
+// 	}else if (seventhTile==4) {
+// five.style.backgroundImage="url("+(people[person])+"5.png)"	
+// 	}else if (seventhTile==5) {
+// six.style.backgroundImage="url("+(people[person])+"6.png)"	
+// 	}else if (seventhTile==6) {
+// seven.style.backgroundImage="url("+(people[person])+"7.png)"	
+// 	}else if (seventhTile==7) {
+// eight.style.backgroundImage="url("+(people[person])+"8.png)"	
+// 	}else if (seventhTile==8) {
+// nine.style.backgroundImage="url("+(people[person])+"9.png)"	
+// 	}
+// }	
+// }else if (guessCount==7) {
+// if (mostRecentGuess==person){
+// alert("You Won The Game! (Did you lose the game just now?) Click new game or refresh to play again")
+// }else{
+// let secondTile = Math.floor(Math.random()*9)
+// if (eightthTile==firstTile || eightthTile==secondTile || eightthTile==thirdTile ||eightthTile==fourthTile || eightthTile==fifthTile|| eightthTile ==sixthTile) {
+// // basically replay the function
+// // I think I need to actually just define the function and then make it so that clicking guess starts it
+// }else{
+// 	if(eightTile==0){
+// one.style.backgroundImage="url("+(people[person])+"1.png)"
+// 	} else if (eightTile==1) {
+// two.style.backgroundImage="url("+(people[person])+"2.png)"
+// 	}else if (eightTile==2) {
+// three.style.backgroundImage="url("+(people[person])+"3.png)"	
+// 	}else if (eightTile==3) {
+// four.style.backgroundImage="url("+(people[person])+"4.png)"	
+// 	}else if (eightTile==4) {
+// five.style.backgroundImage="url("+(people[person])+"5.png)"	
+// 	}else if (eightTile==5) {
+// six.style.backgroundImage="url("+(people[person])+"6.png)"	
+// 	}else if (eightTile==6) {
+// seven.style.backgroundImage="url("+(people[person])+"7.png)"	
+// 	}else if (eightTile==7) {
+// eight.style.backgroundImage="url("+(people[person])+"8.png)"	
+// 	}else if (eightTile==8) {
+// nine.style.backgroundImage="url("+(people[person])+"9.png)"	
+// 	}
+// }	
+// }else if (guessCount==8) {
+// if (mostRecentGuess==person){
+// alert("You Won The Game! (Did you lose the game just now?) Click new game or refresh to play again")
+// }else{
+// let secondTile = Math.floor(Math.random()*9)
+// if (ninthTile==firstTile || ninthTile==secondTile || ninthTile==thirdTile ||ninthTile==fourthTile || ninthTile==fifthTile|| ninthTile ==sixthTile||ninthTile==eightthTile {
+// // basically replay the function
+// // I think I need to actually just define the function and then make it so that clicking guess starts it
+// }else{
+// 	if(ninthTile==0){
+// one.style.backgroundImage="url("+(people[person])+"1.png)"
+// 	} else if (ninthTile==1) {
+// two.style.backgroundImage="url("+(people[person])+"2.png)"
+// 	}else if (ninthTile==2) {
+// three.style.backgroundImage="url("+(people[person])+"3.png)"	
+// 	}else if (ninthTile==3) {
+// four.style.backgroundImage="url("+(people[person])+"4.png)"	
+// 	}else if (ninthTile==4) {
+// five.style.backgroundImage="url("+(people[person])+"5.png)"	
+// 	}else if (ninthTile==5) {
+// six.style.backgroundImage="url("+(people[person])+"6.png)"	
+// 	}else if (ninthTile==6) {
+// seven.style.backgroundImage="url("+(people[person])+"7.png)"	
+// 	}else if (ninthTile==7) {
+// eight.style.backgroundImage="url("+(people[person])+"8.png)"	
+// 	}else if (ninthTile==8) {
+// nine.style.backgroundImage="url("+(people[person])+"9.png)"	
+// 	}
+// }	
+// }else if (guessCount==9) {
+// if (mostRecentGuess==person){
+// alert("You Won The Game! the person was"+(people[person])+" (Did you lose the game just now?) Click new game or refresh to play again")
+// }else{
+// alert("You Lost the Game!!! LOSERRR!!!! Click new game or refresh to play again")
+// }	
+// }
+
+
+// }
+
+}
+
+newGuy.addEventListener("click", (choosePerson))
+
+guess.addEventListener("click", function(){
+	console.log(guessInput.value)
+	if (guessInput.value=person){
+		alert("YOU WON!!!!!!!!!!!")
+	}
+	guessInput.value=""
+})
+
+
+</script>
+
+</body>
+
+</html>
