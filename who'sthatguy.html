@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="icon" type="image/x-icon" href="OldGregg.png">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+	<title>Who's That Guy???</title>
 	<style>
+		body{
+			background-color: teal;
+		}
 		.tile{
 			border: 1px solid black;
 			width: 170px;
@@ -12,58 +19,83 @@
 			background-repeat: no-repeat;
 			background-size:contain;
 			background-position: center;
-
-
+			background-color: lightblue;
+			position:absolute;
 		}
 		#one{
 			left:100px;
 			top:50px;
-			position:absolute;
 		}
 		#two{
 			left:270px;
 			top:50px;
-			position:absolute;
-
 		}
 		#three{
 			left:440px;
 			top:50px;
-			position:absolute;
 		}
 
 		#four{
 			left:100px;
 			top:270px;
-			position:absolute;
 		}
 		#five{
 			left:270px;
 			top:270px;
-			position:absolute;
 		}
 		#six{
 			left:440px;
 			top:270px;
-			position:absolute;
 
 		}
 		#seven{
 			left:100px;
 			top:490px;
-			position:absolute;
 		}
 		#eight{
 			left:270px;
 			top:490px;
-			position:absolute;
 		}
 		#nine{
 			left:440px;
 			top:490px;
-			position:absolute;
 		}
-		
+		.instructions{
+			width:400px;
+			height:500px;
+			top:50px;
+			position:absolute;
+			border:1px solid black;
+			overflow-y:auto;
+			left: 710px;
+			padding: 10px;
+			 font-family: "Indie Flower", cursive;
+			 font-size: 20px;
+			 border-radius:5px;
+			 background-color: lightblue;
+
+		}
+		#New-Guy{
+			 font-family: "Indie Flower", cursive;
+			 font-size: 15px;
+			 background-color: lightblue;
+			 border: 1px solid black;
+			 border-radius:5px;
+		}
+		#Guess{
+			 font-family: "Indie Flower", cursive;
+			 font-size: 15px;
+			 background-color: lightblue;
+			 border: 1px solid black;
+			 border-radius:5px;
+		}
+		#Guess-Input{			 
+			font-family: "Indie Flower", cursive;
+			font-size: 15px;
+			background-color: lightblue;
+			border: 1px solid black;
+			border-radius:5px;
+		}
 
 	</style>
 </head>
@@ -71,10 +103,19 @@
 <button id="New-Guy">New Game</button>
 <input type="text" id="Guess-Input">
 <button id="Guess">Guess</button>
-<div id="instructions">
-	Instructions/Rules/Gameplay:
+<div class="instructions">
+	Time to Guess that Guy (Or gal. Or differently gendered person) 
 	<br><br>
-	1. 
+	Crazy? I was crazy once. They locked me in a room. a round room. a round rubber room. Bagels are round. The sun is round. The sun is yellow. Bananas are yellow. Bananas have spots. Old people have spots. Old people live long lives. Life? that's my favorite cereal! It cost me $10. $10!?!?! That's Crazy!! (see start)
+	<br><br>
+	If you think there should be another person, fill out <a href="https://forms.gle/HnqGKD4AQLGSBgDb7">this form</a> (Actually please do I would be so thankful tbsh)
+	<br><br>
+	If you notice any bugs, fill out <a href="">this form</a> and I might fix it. 
+	<br><br>
+	I'm also working on a points system so I will let you know how that's going if it's going
+	<br><br>
+	Anyways, how's it going? I feel like I'm constantly talking into a void when I write, and I guess that's kind of cool, like the recipient of this message is whoever is reading it. Meta. Anyways, have fun with this very simple game, person from the future!!!! 
+	<br>signed: [redacted because I'm not doxxing myself], 5/25/26
 </div>
 <div class="tile" id="one"></div>
 <div class="tile" id="two"></div>
@@ -89,16 +130,17 @@
 
 <script>
 
-let one = document.getElementById("one")
-let two = document.getElementById("two")
-let three = document.getElementById("three")
-let four = document.getElementById("four")
-let five = document.getElementById("five")
-let six = document.getElementById("six")
-let seven = document.getElementById("seven")
-let eight = document.getElementById("eight")
-let nine = document.getElementById("nine")
-
+let tiles = [
+	document.getElementById("one"),
+	document.getElementById("two"),
+	document.getElementById("three"),
+	document.getElementById("four"),
+	document.getElementById("five"),
+	document.getElementById("six"),
+	document.getElementById("seven"),
+	document.getElementById("eight"),
+	document.getElementById("nine")
+]
 let mostRecentGuess
 let guessCount
 let person
@@ -106,377 +148,73 @@ let tilesRevealed=[]
 newGuy=document.getElementById("New-Guy")
 guess=document.getElementById("Guess")
 guessInput=document.getElementById("Guess-Input")
-let firstTile
-let secondTile
-let thirdTile
-let fourthTile
-let fifthTile
-let sixthTile
-let seventhTile
-let eighthTile
-let ninthTile
 let people = ["Noel-Fielding","David-Bowie","Sabrina-Carpenter","Chappell-Roan","Freddie-Mercury","Timothee-Chalamet","Divine","Adam-Ant","Karl-Lagerfeld","Chae-Stone"]
 
 
-// so basically:
-//-make an array
-//-have it s
+function revealTile() {
 
-function revealTile(){
+	if(guessCount>tiles.length-1) {
+        answer = people[person].replaceAll("-", " ")
+		alert("YOU LOSE!!!! FRIGGIN LOSER!!! The answer was "+answer)
+		choosePerson()
 
-	if(guessCount==1) {
-	secondTile = (Math.floor(Math.random()*9))+1
-
-		if (tilesRevealed.includes(secondTile)){
-		revealTile()
-		} else if(secondTile==1){
-		tilesRevealed.push(secondTile)
-		one.style.backgroundImage="url("+people[person]+"1.png)"
-		} else if(secondTile==2){
-		tilesRevealed.push(secondTile)
-		two.style.backgroundImage="url("+people[person]+"2.png)"
-		} else if(secondTile==3){
-		tilesRevealed.push(secondTile)
-		three.style.backgroundImage="url("+people[person]+"3.png)"
-		} else if(secondTile==4){
-		tilesRevealed.push(secondTile)
-		four.style.backgroundImage="url("+people[person]+"4.png)"
-		} else if(secondTile==5){
-		tilesRevealed.push(secondTile)
-		five.style.backgroundImage="url("+people[person]+"5.png)"
-		} else if(secondTile==6){
-		tilesRevealed.push(secondTile)
-		six.style.backgroundImage="url("+people[person]+"6.png)"
-		} else if(secondTile==7){
-		tilesRevealed.push(secondTile)
-		seven.style.backgroundImage="url("+people[person]+"7.png)"
-		} else if(secondTile==8){
-		tilesRevealed.push(secondTile)
-		eight.style.backgroundImage="url("+people[person]+"8.png)"
-		} else if(secondTile==9){
-		tilesRevealed.push(secondTile)
-		nine.style.backgroundImage="url("+people[person]+"9.png)"
+	} else {
+		let nextTile = (Math.floor(Math.random()*tiles.length))
+		while (tilesRevealed.includes(nextTile)) {
+			nextTile = (Math.floor(Math.random()*tiles.length))
 		}
 
-	} else if(guessCount==2) {
-
-	thirdTile = (Math.floor(Math.random()*9))+1
-
-		if (tilesRevealed.includes(thirdTile)){
-		revealTile()
-		} else if(thirdTile==1){
-		tilesRevealed.push(thirdTile)
-		one.style.backgroundImage="url("+people[person]+"1.png)"
-		} else if(thirdTile==2){
-		tilesRevealed.push(thirdTile)
-		two.style.backgroundImage="url("+people[person]+"2.png)"
-		} else if(thirdTile==3){
-		tilesRevealed.push(thirdTile)
-		three.style.backgroundImage="url("+people[person]+"3.png)"
-		} else if(thirdTile==4){
-		tilesRevealed.push(thirdTile)
-		four.style.backgroundImage="url("+people[person]+"4.png)"
-		} else if(thirdTile==5){
-		tilesRevealed.push(thirdTile)
-		five.style.backgroundImage="url("+people[person]+"5.png)"
-		} else if(thirdTile==6){
-		tilesRevealed.push(thirdTile)
-		six.style.backgroundImage="url("+people[person]+"6.png)"
-		} else if(thirdTile==7){
-		tilesRevealed.push(thirdTile)
-		seven.style.backgroundImage="url("+people[person]+"7.png)"
-		} else if(thirdTile==8){
-		tilesRevealed.push(thirdTile)
-		eight.style.backgroundImage="url("+people[person]+"8.png)"
-		} else if(thirdTile==9){
-		tilesRevealed.push(thirdTile)
-		nine.style.backgroundImage="url("+people[person]+"9.png)"
-		}
-
-	} else if(guessCount==3) {
-
-	fourthTile = (Math.floor(Math.random()*9))+1
-
-		if (tilesRevealed.includes(fourthTile)){
-		revealTile()
-		} else if(fourthTile==1){
-		tilesRevealed.push(fourthTile)
-		one.style.backgroundImage="url("+people[person]+"1.png)"
-		} else if(fourthTile==2){
-		tilesRevealed.push(fourthTile)
-		two.style.backgroundImage="url("+people[person]+"2.png)"
-		} else if(fourthTile==3){
-		tilesRevealed.push(fourthTile)
-		three.style.backgroundImage="url("+people[person]+"3.png)"
-		} else if(fourthTile==4){
-		tilesRevealed.push(fourthTile)
-		four.style.backgroundImage="url("+people[person]+"4.png)"
-		} else if(fourthTile==5){
-		tilesRevealed.push(fourthTile)
-		five.style.backgroundImage="url("+people[person]+"5.png)"
-		} else if(fourthTile==6){
-		tilesRevealed.push(fourthTile)
-		six.style.backgroundImage="url("+people[person]+"6.png)"
-		} else if(fourthTile==7){
-		tilesRevealed.push(fourthTile)
-		seven.style.backgroundImage="url("+people[person]+"7.png)"
-		} else if(fourthTile==8){
-		tilesRevealed.push(fourthTile)
-		eight.style.backgroundImage="url("+people[person]+"8.png)"
-		} else if(fourthTile==9){
-		tilesRevealed.push(fourthTile)
-		nine.style.backgroundImage="url("+people[person]+"9.png)"
-		}
-
-	} else if(guessCount==4) {
-
-	fifthTile = (Math.floor(Math.random()*9))+1
-
-		if (tilesRevealed.includes(fifthTile)){
-		revealTile()
-		} else if(fifthTile==1){
-		tilesRevealed.push(fifthTile)
-		one.style.backgroundImage="url("+people[person]+"1.png)"
-		} else if(fifthTile==2){
-		tilesRevealed.push(fifthTile)
-		two.style.backgroundImage="url("+people[person]+"2.png)"
-		} else if(fifthTile==3){
-		tilesRevealed.push(fifthTile)
-		three.style.backgroundImage="url("+people[person]+"3.png)"
-		} else if(fifthTile==4){
-		tilesRevealed.push(fifthTile)
-		four.style.backgroundImage="url("+people[person]+"4.png)"
-		} else if(fifthTile==5){
-		tilesRevealed.push(fifthTile)
-		five.style.backgroundImage="url("+people[person]+"5.png)"
-		} else if(fifthTile==6){
-		tilesRevealed.push(fifthTile)
-		six.style.backgroundImage="url("+people[person]+"6.png)"
-		} else if(fifthTile==7){
-		tilesRevealed.push(fifthTile)
-		seven.style.backgroundImage="url("+people[person]+"7.png)"
-		} else if(fifthTile==8){
-		tilesRevealed.push(fifthTile)
-		eight.style.backgroundImage="url("+people[person]+"8.png)"
-		} else if(fifthTile==9){
-		tilesRevealed.push(fifthTile)
-		nine.style.backgroundImage="url("+people[person]+"9.png)"
-		}
-
-
-	} else if(guessCount==5) {
-
-		sixthTile = (Math.floor(Math.random()*9))+1
-
-		if (tilesRevealed.includes(sixthTile)){
-		revealTile()
-		} else if(sixthTile==1){
-		tilesRevealed.push(sixthTile)
-		one.style.backgroundImage="url("+people[person]+"1.png)"
-		} else if(sixthTile==2){
-		tilesRevealed.push(sixthTile)
-		two.style.backgroundImage="url("+people[person]+"2.png)"
-		} else if(sixthTile==3){
-		tilesRevealed.push(sixthTile)
-		three.style.backgroundImage="url("+people[person]+"3.png)"
-		} else if(sixthTile==4){
-		tilesRevealed.push(sixthTile)
-		four.style.backgroundImage="url("+people[person]+"4.png)"
-		} else if(sixthTile==5){
-		tilesRevealed.push(sixthTile)
-		five.style.backgroundImage="url("+people[person]+"5.png)"
-		} else if(sixthTile==6){
-		tilesRevealed.push(sixthTile)
-		six.style.backgroundImage="url("+people[person]+"6.png)"
-		} else if(sixthTile==7){
-		tilesRevealed.push(sixthTile)
-		seven.style.backgroundImage="url("+people[person]+"7.png)"
-		} else if(sixthTile==8){
-		tilesRevealed.push(sixthTile)
-		eight.style.backgroundImage="url("+people[person]+"8.png)"
-		} else if(sixthTile==9){
-		tilesRevealed.push(sixthTile)
-		nine.style.backgroundImage="url("+people[person]+"9.png)"
-		}
-
-
-	} else if(guessCount==6) {
-
-		seventhTile = (Math.floor(Math.random()*9))+1
-
-		if (tilesRevealed.includes(seventhTile)){
-		revealTile()
-		} else if(seventhTile==1){
-		tilesRevealed.push(seventhTile)
-		one.style.backgroundImage="url("+people[person]+"1.png)"
-		} else if(seventhTile==2){
-		tilesRevealed.push(seventhTile)
-		two.style.backgroundImage="url("+people[person]+"2.png)"
-		} else if(seventhTile==3){
-		tilesRevealed.push(seventhTile)
-		three.style.backgroundImage="url("+people[person]+"3.png)"
-		} else if(seventhTile==4){
-		tilesRevealed.push(seventhTile)
-		four.style.backgroundImage="url("+people[person]+"4.png)"
-		} else if(seventhTile==5){
-		tilesRevealed.push(seventhTile)
-		five.style.backgroundImage="url("+people[person]+"5.png)"
-		} else if(seventhTile==6){
-		tilesRevealed.push(seventhTile)
-		six.style.backgroundImage="url("+people[person]+"6.png)"
-		} else if(seventhTile==7){
-		tilesRevealed.push(seventhTile)
-		seven.style.backgroundImage="url("+people[person]+"7.png)"
-		} else if(seventhTile==8){
-		tilesRevealed.push(seventhTile)
-		eight.style.backgroundImage="url("+people[person]+"8.png)"
-		} else if(seventhTile==9){
-		tilesRevealed.push(seventhTile)
-		nine.style.backgroundImage="url("+people[person]+"9.png)"
-		}
- 
-
-	} else if(guessCount==7) {
-
-		eighthTile = (Math.floor(Math.random()*9))+1
-
-		if (tilesRevealed.includes(eighthTile)){
-		revealTile()
-		} else if(eighthTile==1){
-		tilesRevealed.push(eighthTile)
-		one.style.backgroundImage="url("+people[person]+"1.png)"
-		} else if(eighthTile==2){
-		tilesRevealed.push(eighthTile)
-		two.style.backgroundImage="url("+people[person]+"2.png)"
-		} else if(eighthTile==3){
-		tilesRevealed.push(eighthTile)
-		three.style.backgroundImage="url("+people[person]+"3.png)"
-		} else if(eighthTile==4){
-		tilesRevealed.push(eighthTile)
-		four.style.backgroundImage="url("+people[person]+"4.png)"
-		} else if(eighthTile==5){
-		tilesRevealed.push(eighthTile)
-		five.style.backgroundImage="url("+people[person]+"5.png)"
-		} else if(eighthTile==6){
-		tilesRevealed.push(eighthTile)
-		six.style.backgroundImage="url("+people[person]+"6.png)"
-		} else if(eighthTile==7){
-		tilesRevealed.push(eighthTile)
-		seven.style.backgroundImage="url("+people[person]+"7.png)"
-		} else if(eighthTile==8){
-		tilesRevealed.push(eighthTile)
-		eight.style.backgroundImage="url("+people[person]+"8.png)"
-		} else if(eighthTile==9){
-		tilesRevealed.push(eighthTile)
-		nine.style.backgroundImage="url("+people[person]+"9.png)"
-		}
-
-
-	} else if(guessCount==8) {
-
-		ninthTile = (Math.floor(Math.random()*9))+1
-
-		if (tilesRevealed.includes(ninthTile)){
-		revealTile()
-		} else if(ninthTile==1){
-		tilesRevealed.push(ninthTile)
-		one.style.backgroundImage="url("+people[person]+"1.png)"
-		} else if(ninthTile==2){
-		tilesRevealed.push(ninthTile)
-		two.style.backgroundImage="url("+people[person]+"2.png)"
-		} else if(ninthTile==3){
-		tilesRevealed.push(ninthTile)
-		three.style.backgroundImage="url("+people[person]+"3.png)"
-		} else if(ninthTile==4){
-		tilesRevealed.push(ninthTile)
-		four.style.backgroundImage="url("+people[person]+"4.png)"
-		} else if(ninthTile==5){
-		tilesRevealed.push(ninthTile)
-		five.style.backgroundImage="url("+people[person]+"5.png)"
-		} else if(ninthTile==6){
-		tilesRevealed.push(ninthTile)
-		six.style.backgroundImage="url("+people[person]+"6.png)"
-		} else if(ninthTile==7){
-		tilesRevealed.push(ninthTile)
-		seven.style.backgroundImage="url("+people[person]+"7.png)"
-		} else if(ninthTile==8){
-		tilesRevealed.push(ninthTile)
-		eight.style.backgroundImage="url("+people[person]+"8.png)"
-		} else if(ninthTile==9){
-		tilesRevealed.push(ninthTile)
-		nine.style.backgroundImage="url("+people[person]+"9.png)"
-		}
-
-
-	} else if(guessCount==9) {
-
-		alert("YOU LOSE!!!! FRIGGIN LOSER!!! The answer was"+people[person])
-
+		tilesRevealed.push(nextTile)
+		console.log(tilesRevealed)
+        tiles[nextTile].style.backgroundImage="url("+people[person]+(nextTile+1)+".png)"
 	}
 }
 
+function choosePerson() {
+	guessCount=0
+	tilesRevealed=[]
 
+	for (let i = 0; i < tiles.length; i++) {
+		tiles[i].style.backgroundImage=""
+	}
 
-function choosePerson(){
-guessCount=0
-tilesRevealed=[]
-one.style.backgroundImage=""
-two.style.backgroundImage=""
-three.style.backgroundImage=""
-four.style.backgroundImage=""
-five.style.backgroundImage=""
-six.style.backgroundImage=""
-seven.style.backgroundImage=""
-eight.style.backgroundImage=""
-nine.style.backgroundImage=""
+	person =Math.floor(Math.random()*people.length)
+	console.log(people[person])
 
-
-person =Math.floor(Math.random()*10)
-console.log(people[person])
-
-firstTile= Math.floor(Math.random()*9)+1
-console.log(firstTile)
-tilesRevealed.push(firstTile)
-console.log(tilesRevealed)
-
-if (firstTile==1) {
-	one.style.backgroundImage="url("+people[person]+"1.png)"
-} else if (firstTile==2) {
-	two.style.backgroundImage="url("+people[person]+"2.png)"
-} else if (firstTile==3) {
-	three.style.backgroundImage="url("+people[person]+"3.png)"
-} else if (firstTile==4) {
-	four.style.backgroundImage="url("+people[person]+"4.png)"
-} else if (firstTile==5) {
-	five.style.backgroundImage="url("+people[person]+"5.png)"
-} else if (firstTile==6) {
-	six.style.backgroundImage="url("+people[person]+"6.png)"
-}else if (firstTile==7) {
-	seven.style.backgroundImage="url("+people[person]+"7.png)"
-} else if (firstTile==8) {
-	eight.style.backgroundImage="url("+people[person]+"8.png)"
-} else if (firstTile==9) {
-	nine.style.backgroundImage="url("+people[person]+"9.png)"
+	revealTile()
 }
 
-
+function normalize(s) {
+    s = s.toLowerCase()
+    s = s.replaceAll("-","")
+    s = s.replaceAll(" ","")
+    return s
 }
 
-
-
-newGuy.addEventListener("click", (choosePerson))
+newGuy.addEventListener("click", function(){
+	people = ["Noel-Fielding","David-Bowie","Sabrina-Carpenter","Chappell-Roan","Freddie-Mercury","Timothee-Chalamet","Divine","Adam-Ant","Karl-Lagerfeld","Chae-Stone"]
+	choosePerson()
+})
 
 guess.addEventListener("click", function(){
 	mostRecentGuess = guessInput.value
 	console.log(mostRecentGuess)
 	guessInput.value=""
 	guessCount++
-	if (mostRecentGuess==people[person]) {
-alert("YOU WIN!!!")
-	}else{
+	if (normalize(mostRecentGuess)==normalize(people[person])) {
+		alert("Yay!!!")
+		people.splice(person, 1)
+		if (people == []){
+			alert("You finished the whole game, buddy. Congrats and start again if you want")
+		} else {choosePerson()
+		console.log(people)
+		}
+		} else {
 		revealTile()
 	}
 })
+
+choosePerson()
 
 </script>
 
