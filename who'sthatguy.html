@@ -108,9 +108,9 @@
 	<br><br>
 	Crazy? I was crazy once. They locked me in a room. a round room. a round rubber room. Bagels are round. The sun is round. The sun is yellow. Bananas are yellow. Bananas have spots. Old people have spots. Old people live long lives. Life? that's my favorite cereal! It cost me $10. $10!?!?! That's Crazy!! (see start)
 	<br><br>
-	If you think there should be another person, fill out <a href="https://forms.gle/HnqGKD4AQLGSBgDb7">this form</a> (Actually please do I would be so thankful tbsh)
+	If you think there should be another person, fill out <a href="https://forms.gle/HnqGKD4AQLGSBgDb7" target="_blank" rel="noreferrer">this form</a> (Actually please do I would be so thankful tbsh)
 	<br><br>
-	If you notice any bugs, fill out <a href="">this form</a> and I might fix it. 
+	If you notice any bugs, fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSfKNph0Nm4odzqKAYzyyCb63PCnobOi743W5Kaae7cBiFvpqw/viewform?usp=publish-editor" target="_blank" rel="noreferrer">this form</a> and I might fix it. 
 	<br><br>
 	I'm also working on a points system so I will let you know how that's going if it's going
 	<br><br>
@@ -193,6 +193,7 @@ function normalize(s) {
 
 newGuy.addEventListener("click", function(){
 	people = ["Noel-Fielding","David-Bowie","Sabrina-Carpenter","Chappell-Roan","Freddie-Mercury","Timothee-Chalamet","Divine","Adam-Ant","Karl-Lagerfeld","Chae-Stone"]
+	points=0
 	choosePerson()
 })
 
@@ -210,6 +211,7 @@ guess.addEventListener("click", function(){
 		console.log(people)
 		}
 		} else {
+		possiblePoints+=-1
 		revealTile()
 	}
 })
